@@ -1,0 +1,11 @@
+version: '2.1'
+services:
+  movie-quizz-app:
+    build: .
+    image: movie-quizz-app
+    container_name: movie-quizz-app
+    environment:
+      - PYTHONUNBUFFERED=1
+      - API_ACCESS_TOKEN=${API_ACCESS_TOKEN}
+    ports:
+      - 5000:8000

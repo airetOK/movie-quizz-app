@@ -1,0 +1,25 @@
+.container {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.fa-check-circle {
+    color: #30b052;
+}
+
+.fa-times {
+    color: #b03034;
+}
+
+.fa-step-forward, .fa-repeat {
+    color: black;
+}
+
+.fa-step-forward:hover, .fa-repeat:hover {
+    transform: scale(1.2);
+}
+

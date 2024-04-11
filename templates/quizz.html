@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link
+            href="../static/bootstrap/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous">
+        <link rel="stylesheet"
+            href="../static/font-awesome-4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet"
+            href="../static/css/quizz.css">
+        <script
+            src="../static/bootstrap/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="d-flex flex-column align-items-center m-5">
+                <span>{{ quizz.get_question() }}</span>
+            <div class="d-flex justify-content-center image-container m-5">
+                {% for movie in quizz.get_shuffled_option_movies() %}
+                <form action="/quizz/{{ quizz.get_id() }}/verify" method="post">
+                    <button class="btn btn-outline-primary m-2" name="option_movie_id" value="{{ movie.get_id() }}">
+                        <img src="{{ movie.get_image_url() }}" width="300"
+                            height="300" alt="movie">
+                    </button>
+                </form>
+                ​{% endfor %}
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,8 @@
+.image-container {
+    flex-flow: row wrap;
+}
+
+div span {
+    text-align: center;
+    font-size: x-large;
+}
