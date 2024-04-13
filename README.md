@@ -33,3 +33,12 @@ Send your first request on *http://localhost:5000/quizz*
 
 ## Run tests
 From the project's root execute **pytest**.
+
+## Generate code coverage
+From the project's root execute 
+
+ - **coverage run**
+ - **coverage report -m**
+ - **covergae html**
+
+The coverage report will be stored in the *coverage_html_report/index.html* file.
