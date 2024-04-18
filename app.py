@@ -6,13 +6,13 @@ from service.quizz_service_impl import QuizzServiceImpl
 app = Flask(__name__)
 client = MovieApiClient()
 movie_service = MovieServiceImpl(client)
+quizz_service = QuizzServiceImpl()
 quizzes = {}
 
 
 @app.route("/quizz")
 def new_quizz():
-    quizz = QuizzServiceImpl().generate_quizz(
-        movie_service.get_five_random_movies())
+    quizz = quizz_service.generate_quizz(movie_service.get_five_random_movies())
     quizzes[quizz.get_id()] = quizz
     return render_template("quizz.html", quizz=quizz)
 
