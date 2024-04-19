@@ -7,7 +7,7 @@ class Movie():
 
     def get_id(self):
         return self.id
-    
+
     def get_title(self):
         return self.title
 
