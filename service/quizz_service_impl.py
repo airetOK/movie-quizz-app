@@ -14,8 +14,9 @@ class QuizzServiceImpl(QuizzService):
         option_movie_2 = movies[1]
         option_movie_3 = movies[2]
         option_movie_4 = movies[3]
-        return Quizz(quizz_id, correct_movie, option_movie_1, option_movie_2, option_movie_3, option_movie_4)
-    
+        return Quizz(quizz_id, correct_movie, option_movie_1,
+                     option_movie_2, option_movie_3, option_movie_4)
+
     def verify_quizz(self, option_movie_id: str, quizz: Quizz) -> bool:
         return option_movie_id == quizz.get_correct_movie_id()
 
