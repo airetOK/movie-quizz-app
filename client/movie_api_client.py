@@ -17,7 +17,8 @@ class MovieApiClient():
     MOVIE_IMAGES_URL_TEMPLATE = 'https://api.themoviedb.org/3/movie/{}/images'
 
     def __init__(self) -> None:
-        self.auth_header = {'Authorization': f'Bearer {os.getenv("API_ACCESS_TOKEN")}'}
+        self.auth_header = {'Authorization':
+                            f'Bearer {os.getenv("API_ACCESS_TOKEN")}'}
 
     def get_top_rated_movies(self, page: int) -> list[Movie]:
         resp = httpx.get(self.TOP_RATED_MOVIES_URL_TEMPLATE.format(page),
@@ -26,7 +27,7 @@ class MovieApiClient():
             f'The status code for request to get top rated movies on the page {page} is {resp.status_code}')
 
         results = json.loads(resp.content)['results']
-        return [Movie(movie['id'], movie['original_title']) for movie in results]
+        return [Movie(movie['id'], movie['title']) for movie in results]
 
     def get_image_url_by_movie_id(self, id: str) -> str:
         resp = httpx.get(self.MOVIE_IMAGES_URL_TEMPLATE.format(id),
