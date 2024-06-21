@@ -29,7 +29,9 @@
             </div>
             <div class="d-flex align-items-center justify-content-evenly">
                 <a href="/quizz"><i class="fa fa-step-forward fa-3x" aria-hidden="true"></i></a>
+                {% if not is_correct %}
                 <a href="/quizz/{{ quizz_id }}"><i class="fa fa-repeat fa-3x" aria-hidden="true"></i></a>
+                {% endif %}
             </div>
         </div>
     </body>
