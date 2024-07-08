@@ -20,17 +20,20 @@
     </head>
     <body>
         <div class="d-flex flex-column align-items-center m-5">
-            <span>{{ quizz.get_question() }}</span>
-            <div class="d-flex justify-content-center image-container m-5">
-                {% for movie in quizz.get_shuffled_option_movies() %}
-                <form action="/quizz/{{ quizz.get_id() }}/verify" method="post">
-                    <button class="btn btn-outline-primary m-2"
-                        name="option_movie_id" value="{{ movie.get_id() }}">
-                        <img src="{{ movie.get_image_url() }}" width="300"
-                            height="300" alt="movie">
-                    </button>
-                </form>
-                ​{% endfor %}
+            <div class="card d-flex justify-content-center align-items-center">
+                <img src="../static/images/title-pic.png" class="card-img-top"
+                    alt="title-pic">
+                <div
+                    class="card-body d-flex flex-column align-items-center gap-3">
+                    <form action="/start" method="GET">
+                        <button type="submit"
+                            class="btn btn-primary custom-btn">START</button>
+                    </form>
+                    <form action="/quizz" method="GET">
+                        <button type="submit"
+                            class="btn btn-primary custom-btn">QUICK QUIZZ</button>
+                    </form>
+                </div>
             </div>
         </div>
     </body>

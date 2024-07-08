@@ -1,10 +1,11 @@
-from unittest.mock import patch, Mock
+from unittest.mock import patch, Mock, MagicMock
 import pytest
 
 from app import app as flask_app
-from tests.sample_data import mock_quizzes, mock_movies
+from tests.sample_data import mock_quizzes, mock_movies, mock_game
 from service.quizz_service_impl import QuizzServiceImpl
 from service.movie_service_impl import MovieServiceImpl
+from service.game_service_impl import GameServiceImpl
 
 
 @pytest.fixture()
@@ -25,6 +26,55 @@ def client(app):
 @pytest.fixture()
 def runner(app):
     return app.test_cli_runner()
+
+
+def test_main_menu(client):
+    response = client.get("/")
+    assert 200 == response.status_code
+
+
+def test_start_game(client):
+    with patch.object(GameServiceImpl, "generate_game", return_value=MagicMock()) as mock_generate_game:
+        response = client.get("/start")
+
+    mock_generate_game.assert_called_once
+    assert 200 == response.status_code
+
+
+def test_verify_game_all_answers_correct(client):
+    with patch.object(GameServiceImpl, "generate_game", return_value=mock_game) as mock_generate_game:
+        response_start = client.get("/start")
+        response_verify = client.post(f"/game/{mock_game.get_id()}/verify",
+                                      data={'correct-answers': ['1-2-3-4-5']})
+    mock_generate_game.assert_called_once
+    assert 200 == response_start.status_code
+    assert 200 == response_verify.status_code
+    print(response_verify.data)
+    assert b'5\n' in response_verify.data
+
+
+def test_verify_game_2_answers_correct(client):
+    with patch.object(GameServiceImpl, "generate_game", return_value=mock_game) as mock_generate_game:
+        response_start = client.get("/start")
+        response_verify = client.post(f"/game/{mock_game.get_id()}/verify",
+                                      data={'correct-answers': ['1-2-777-777-777']})
+    mock_generate_game.assert_called_once
+    assert 200 == response_start.status_code
+    assert 200 == response_verify.status_code
+    print(response_verify.data)
+    assert b'2\n' in response_verify.data
+
+
+def test_verify_game_none_answers_correct(client):
+    with patch.object(GameServiceImpl, "generate_game", return_value=mock_game) as mock_generate_game:
+        response_start = client.get("/start")
+        response_verify = client.post(f"/game/{mock_game.get_id()}/verify",
+                                      data={'correct-answers': ['777-777-777-777-777']})
+    mock_generate_game.assert_called_once
+    assert 200 == response_start.status_code
+    assert 200 == response_verify.status_code
+    print(response_verify.data)
+    assert b'0\n' in response_verify.data
 
 
 def test_new_quizz(client):
