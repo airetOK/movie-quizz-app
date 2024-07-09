@@ -30,7 +30,7 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Run unit tests
         run: |
-          python -c "import os; "
+          set API_ACEESS_TOKEN=$API_ACEESS_TOKEN
           coverage run -m pytest  -v -s
       - name: Generate Coverage Report
         run: |
