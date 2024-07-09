@@ -6,7 +6,7 @@ on:
       - dev
 
 env:
-  API_ACEESS_TOKEN: ${{ secrets.API_ACEESS_TOKEN }}
+  API_ACCESS_TOKEN: ${{ secrets.API_ACCESS_TOKEN }}
 
 jobs:
   build:
@@ -30,7 +30,7 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Run unit tests
         run: |
-          set API_ACEESS_TOKEN=${{ env.API_ACEESS_TOKEN }}
+          set API_ACCESS_TOKEN=${{ env.API_ACCESS_TOKEN }}
           coverage run -m pytest  -v -s
       - name: Generate Coverage Report
         run: |
