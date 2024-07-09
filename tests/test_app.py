@@ -49,7 +49,6 @@ def test_verify_game_all_answers_correct(client):
     mock_generate_game.assert_called_once
     assert 200 == response_start.status_code
     assert 200 == response_verify.status_code
-    print(response_verify.data)
     assert b'5\n' in response_verify.data
 
 
@@ -61,7 +60,6 @@ def test_verify_game_2_answers_correct(client):
     mock_generate_game.assert_called_once
     assert 200 == response_start.status_code
     assert 200 == response_verify.status_code
-    print(response_verify.data)
     assert b'2\n' in response_verify.data
 
 
@@ -73,7 +71,6 @@ def test_verify_game_none_answers_correct(client):
     mock_generate_game.assert_called_once
     assert 200 == response_start.status_code
     assert 200 == response_verify.status_code
-    print(response_verify.data)
     assert b'0\n' in response_verify.data
 
 
