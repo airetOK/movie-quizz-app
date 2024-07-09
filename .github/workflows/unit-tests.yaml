@@ -6,7 +6,7 @@ on:
       - dev
 
 env:
-  API_ACEESS_TOKEN: ${{ vars.API_ACEESS_TOKEN }}
+  API_ACEESS_TOKEN: ${{ secrets.API_ACEESS_TOKEN }}
 
 jobs:
   build:
