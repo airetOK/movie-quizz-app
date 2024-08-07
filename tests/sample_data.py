@@ -1,5 +1,6 @@
 from model.movie import Movie
 from model.quizz import Quizz
+from model.game import Game
 
 
 mock_movies = [
@@ -22,3 +23,5 @@ mock_quizzes = [
     Quizz('5', mock_movies[4], mock_movies[0],
           mock_movies[1], mock_movies[2], mock_movies[3])
 ]
+
+mock_game = Game('1', mock_quizzes)

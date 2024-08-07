@@ -22,3 +22,9 @@
 .fa-step-forward:hover, .fa-repeat:hover {
     transform: scale(1.2);
 }
+
+.game-result {
+    color: rgb(74, 191, 34);
+    font-size: 6rem;
+    font-weight: 400;
+}

@@ -1,4 +1,5 @@
 from service.quizz_service import QuizzService
+from service.movie_service import MovieService
 from model.movie import Movie
 from model.quizz import Quizz
 import random
@@ -6,6 +7,10 @@ import uuid
 
 
 class QuizzServiceImpl(QuizzService):
+
+    def __init__(self, movie_service: MovieService) -> None:
+        super().__init__()
+        self.movie_service = movie_service
 
     def generate_quizz(self, movies: list[Movie]) -> Quizz:
         quizz_id = self.get_unique_id()
@@ -25,3 +30,6 @@ class QuizzServiceImpl(QuizzService):
 
     def __get_random_num__(self):
         return random.randint(0, 4)
+
+    def load_quizzes(self, count: int = 10):
+        return [self.generate_quizz(self.movie_service.get_five_random_movies()) for _ in range(count)]
