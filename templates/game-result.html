@@ -22,15 +22,15 @@
         <div class="container">
             <div class="d-flex justify-content-center gap-3 game-result">
                 <div>
-                    {{game_result.get_total_amount()}}
+                    {{game_result.get_correct_answers()}}
                 </div>
                 <div>/</div>
                 <div>
-                    {{game_result.get_correct_answers()}}
+                    {{game_result.get_total_amount()}}
                 </div>
             </div>
             <div class="d-flex align-items-center justify-content-evenly">
-                <a href="/start"><i class="fa fa-step-forward fa-3x"
+                <a href="/"><i class="fa fa-home fa-3x"
                         aria-hidden="true"></i></a>
                 {% if not is_correct %}
                 <a href="/game/{{ game_id }}"><i class="fa fa-repeat fa-3x"
