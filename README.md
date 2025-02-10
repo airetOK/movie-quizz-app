@@ -31,8 +31,15 @@ From the project's root execute **docker-compose up -d**.
 The application is living on *http://localhost:5000* by default.
 Send your first request on *http://localhost:5000/quizz*
 
-## Run tests
+## Run unit tests
 From the project's root execute **pytest**.
+
+## Run e2e tests
+The e2e is executing in the separate docker container.
+First, execute **playwright install** from the project's root. This command installs the chromium's driver.
+After that, execute **docker-compose up -d**.
+The container for e2e testing lives on *http://localhost:5001*.
+Execute **pytest/tests/e2e**.
 
 ## Generate code coverage
 From the project's root execute
