@@ -1,12 +1,12 @@
 import os
 import re
 from dotenv import load_dotenv
-from playwright.sync_api import Playwright, Page, expect, Browser
+from playwright.sync_api import Playwright, expect, Browser
 
 
 load_dotenv()
 
-BASE_URL = os.getenv('SERVICE_URL')
+BASE_URL = os.getenv('SERVICE_E2E_URL')
 
 
 def open_close_browsers(func):
