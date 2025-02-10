@@ -28,10 +28,18 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          python -m playwright install
+      - name: Start the local server
+        run: |
+          nohup python -m flask run --host=0.0.0.0 --port=5001 &
+          sleep 5  # Allow the server some time to start
       - name: Run unit tests
         run: |
           set API_ACCESS_TOKEN=${{ env.API_ACCESS_TOKEN }}
           coverage run -m pytest  -v -s
+      - name: Run e2e tests
+        run: |
+          pytest tests/e2e --maxfail=1 --disable-warnings -q
       - name: Generate Coverage Report
         run: |
           coverage report -m

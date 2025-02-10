@@ -12,8 +12,7 @@ BASE_URL = os.getenv('SERVICE_E2E_URL')
 def open_close_browsers(func):
     def inner(playwright: Playwright):
         chrome_browser = playwright.chromium.launch(
-            headless=False,
-            slow_mo=1000)
+            headless=True)
         func(chrome_browser)
         chrome_browser.close()
     return inner
