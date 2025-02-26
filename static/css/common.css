@@ -1,0 +1,7 @@
+#return-to-main-menu i {
+    color: red;
+}
+
+#return-to-main-menu i:hover {
+    transform: scale(1.2);
+}
