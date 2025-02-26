@@ -14,6 +14,8 @@
             href="../static/font-awesome-4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet"
             href="../static/css/quizz.css">
+        <link rel="stylesheet"
+            href="../static/css/common.css">
         <script
             src="../static/bootstrap/js/bootstrap.bundle.min.js"
             crossorigin="anonymous"></script>
@@ -21,7 +23,7 @@
     <body>
         <div class="d-flex flex-column align-items-center m-5">
             <span>{{ quizz.get_question() }}</span>
-            <div class="d-flex justify-content-center image-container m-5">
+            <div class="movies d-flex justify-content-center image-container m-5">
                 {% for movie in quizz.get_shuffled_option_movies() %}
                 <form action="/quizz/{{ quizz.get_id() }}/verify" method="post">
                     <button class="btn btn-outline-primary m-2"
@@ -32,6 +34,7 @@
                 </form>
                 ​{% endfor %}
             </div>
+            {% extends "return-to-main-menu.html" %}
         </div>
     </body>
 </html>
