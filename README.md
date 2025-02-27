@@ -7,7 +7,7 @@ This MVC application built on Flask is using The MovieDB API to generate quizzes
 Execute from the root project **python -m venv venv**
 
 >NOTE: don't change the name for your virtual environment,
->because *.gitignore* includes *venv* 
+>because *.gitignore* includes *venv*
 
 2. Start the virtual environemnt.
 Go to **/path/to/new/virtual/environment/Scripts**,
@@ -29,4 +29,20 @@ Send your first request on *http://localhost:5000/quizz*
 Before the creating a container, create the **.env** file (look to the *Local development section, 4th point*)
 From the project's root execute **docker-compose up -d**.
 The application is living on *http://localhost:5000* by default.
-Send your first request on *http://localhost:5000/quizz* 
+Send your first request on *http://localhost:5000/quizz*
+
+## Run tests
+From the project's root execute **pytest**.
+
+## Generate code coverage
+From the project's root execute
+
+ - **coverage run**
+ - **coverage report -m**
+ - **covergae html**
+
+The coverage report will be stored in the *coverage_html_report/index.html* file.
+
+## Pre-commit setup
+Execute **pre-commit install** to set up the git hook scripts.
+After that *pre-commit* will run automatically on *git commit*.

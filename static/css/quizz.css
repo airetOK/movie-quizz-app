@@ -6,3 +6,26 @@ div span {
     text-align: center;
     font-size: x-large;
 }
+
+hr {
+    border: 1px solid black;
+    width: 90%;
+}
+
+.custom-btn {
+    border-color: #3275a8;
+    border-radius: 1%;
+    background-color: #3275a8;
+}
+
+.submit-answers-btn {
+    width: 20rem;
+    height: 6rem;
+    background-color: rgb(74, 191, 34);
+    border-color: rgb(74, 191, 34);
+    border-radius: 1%;
+}
+
+.card {
+    width: 40%;
+}

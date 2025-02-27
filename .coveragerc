@@ -1,0 +1,9 @@
+[run]
+branch = True
+command_line=-m pytest
+
+[report]
+fail_under = 95
+
+[html]
+directory = coverage_html_report

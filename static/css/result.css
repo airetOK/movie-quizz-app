@@ -15,11 +15,16 @@
     color: #b03034;
 }
 
-.fa-step-forward, .fa-repeat {
+.fa-home, .fa-repeat {
     color: black;
 }
 
-.fa-step-forward:hover, .fa-repeat:hover {
+.fa-home:hover, .fa-repeat:hover {
     transform: scale(1.2);
 }
 
+.game-result {
+    color: rgb(74, 191, 34);
+    font-size: 6rem;
+    font-weight: 400;
+}
