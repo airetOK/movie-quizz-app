@@ -25,7 +25,7 @@ def test_quizz(browser: Browser):
     page.goto(f"{BASE_URL}/quizz")
     expect(page).to_have_url(re.compile(f"{BASE_URL}/quizz"))
 
-
+    
 @open_close_browsers
 def test_return_to_main_menu_from_quick_quizz(browser: Browser):
     context = browser.new_context()
