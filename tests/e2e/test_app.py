@@ -25,7 +25,7 @@ def test_quizz(browser: Browser):
     page.goto(f"{BASE_URL}/quizz")
     expect(page).to_have_url(re.compile(f"{BASE_URL}/quizz"))
 
-    
+
 @open_close_browsers
 def test_return_to_main_menu_from_quick_quizz(browser: Browser):
     context = browser.new_context()
@@ -53,3 +53,49 @@ def test_return_to_main_menu_from_result_page(browser: Browser):
     expect(page).to_have_url(re.compile(f"{BASE_URL}/quizz/.*/verify"))
     page.locator("#return-to-main-menu").click()
     expect(page).to_have_url(re.compile(f"{BASE_URL}"))
+
+
+@open_close_browsers
+def test_click_quizz_results_link_in_main_menu(browser: Browser):
+    context = browser.new_context()
+    page = context.new_page()
+    page.goto(f"{BASE_URL}")
+
+    expect(page.locator("#showQuizzResultsModal")).not_to_be_visible
+    page.locator("#quizz-results-link").click()
+    expect(page.locator("#showQuizzResultsModal")).to_be_visible
+
+
+@open_close_browsers
+def test_click_quizz_results_link_on_quizz_page(browser: Browser):
+    context = browser.new_context()
+    page = context.new_page()
+    page.goto(f"{BASE_URL}/quizz")
+
+    expect(page.locator("#showQuizzResultsModal")).not_to_be_visible
+    page.locator("#quizz-results-link").click()
+    expect(page.locator("#showQuizzResultsModal")).to_be_visible
+
+
+@open_close_browsers
+def test_click_quizz_results_link_on_quizz_result_page(browser: Browser):
+    context = browser.new_context()
+    page = context.new_page()
+    page.goto(f"{BASE_URL}/quizz")
+    page.locator("div.movies form:first-of-type button").click()
+    expect(page).to_have_url(re.compile(f"{BASE_URL}/quizz/.*/verify"))
+
+    expect(page.locator("#showQuizzResultsModal")).not_to_be_visible
+    page.locator("#quizz-results-link").click()
+    expect(page.locator("#showQuizzResultsModal")).to_be_visible
+
+
+@open_close_browsers
+def test_click_quizz_results_link_in_game(browser: Browser):
+    context = browser.new_context()
+    page = context.new_page()
+    page.goto(f"{BASE_URL}/start")
+
+    expect(page.locator("#showQuizzResultsModal")).not_to_be_visible
+    page.locator("#quizz-results-link").click()
+    expect(page.locator("#showQuizzResultsModal")).to_be_visible

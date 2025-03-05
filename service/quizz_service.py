@@ -1,12 +1,11 @@
 from abc import ABC, abstractmethod
-from model.movie import Movie
 from model.quizz import Quizz
 
 
 class QuizzService(ABC):
 
     @abstractmethod
-    def generate_quizz(self, movies: list[Movie]):
+    def generate_quizz(self):
         pass
 
     @abstractmethod

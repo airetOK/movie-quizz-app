@@ -34,7 +34,8 @@
                 </form>
                 ​{% endfor %}
             </div>
-            {% extends "return-to-main-menu.html" %}
+            {% include "partials/return-to-main-menu.html" %}
         </div>
+        {% include "partials/quizz-results-modal.html" %}
     </body>
 </html>

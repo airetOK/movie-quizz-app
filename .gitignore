@@ -4,3 +4,4 @@ __pycache__
 .pytest_cache
 coverage_html_report
 .coverage
+flask_session
