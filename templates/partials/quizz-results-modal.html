@@ -1,0 +1,36 @@
+<div id="quizz-results-link" class="position-fixed bottom-0 left-0">
+    <a class="nav-link active"
+        data-bs-toggle="modal"
+        data-bs-target="#showQuizzResultsModal"
+        aria-current="page"
+        href="#">
+        <i class="fa fa-info-circle fa-2x"
+            aria-hidden="true"></i>
+    </a>
+</div>
+
+<div class="modal fade" id="showQuizzResultsModal" tabindex="-1"
+    aria-labelledby="showQuizzResultsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"
+                    id="showQuizzResultsModalLabel">Statistics:</h5>
+                <button type="button" class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="d-flex flex-column mb-3">
+                    <div class="p-2">
+                        Total: {{ session_data.get('total_quizzes') }}
+                    </div>
+                    <div class="p-2">
+                        Correct: {{ session_data.get('correct_answers') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

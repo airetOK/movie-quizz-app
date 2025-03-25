@@ -2,7 +2,8 @@ from model.movie import Movie
 from model.quizz import Quizz
 from model.game import Game
 
-
+'''TO:DO remove this module, use test_data_loader.py for receiving sample data
+(e.g. see test_quizz_service_impl.py)'''
 mock_movies = [
     Movie(1, 'Harry Potter'),
     Movie(2, 'Lord of the Rings'),

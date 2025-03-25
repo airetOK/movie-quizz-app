@@ -5,3 +5,11 @@
 #return-to-main-menu i:hover {
     transform: scale(1.2);
 }
+
+#quizz-results-link a {
+    color: #3275a8;
+}
+
+#quizz-results-link a:hover {
+    transform: scale(1.2);
+}
