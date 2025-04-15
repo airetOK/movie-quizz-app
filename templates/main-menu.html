@@ -13,29 +13,24 @@
         <link rel="stylesheet"
             href="../static/font-awesome-4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet"
-            href="../static/css/quizz.css">
-        <link rel="stylesheet"
             href="../static/css/common.css">
         <script
             src="../static/bootstrap/js/bootstrap.bundle.min.js"
             crossorigin="anonymous"></script>
     </head>
     <body>
-        <div class="d-flex flex-column align-items-center m-5">
-            <div class="card d-flex justify-content-center align-items-center">
-                <img src="../static/images/title-pic.png" class="card-img-top"
-                    alt="title-pic">
-                <div
-                    class="card-body d-flex flex-column align-items-center gap-3">
-                    <form action="/start" method="GET">
-                        <button type="submit"
-                            class="btn btn-primary custom-btn">START</button>
-                    </form>
-                    <form action="/quizz" method="GET">
-                        <button type="submit"
-                            class="btn btn-primary custom-btn">QUICK QUIZZ</button>
-                    </form>
-                </div>
+        <div class="bg d-flex flex-column justify-content-center">
+            <div class="align-self-center">
+                <form action="/start" method="GET">
+                    <button type="submit"
+                            class="btn btn-link">START</button>
+                </form>
+            </div>
+            <div class="align-self-center" style="flex-grow: 0.4;">
+                <form action="/quizz" method="GET">
+                    <button type="submit"
+                            class="btn btn-link">QUICK QUIZZ</button>
+                </form>
             </div>
         </div>
         {% include 'partials/quizz-results-modal.html' %}

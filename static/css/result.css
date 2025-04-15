@@ -1,13 +1,19 @@
 .container {
+    width: 20rem;
+    height: 20rem;
     margin: 0;
     position: absolute;
     top: 50%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    background-image: url("../images/film-border.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
-.fa-check-circle {
+.fa-check {
     color: #30b052;
 }
 
@@ -15,16 +21,34 @@
     color: #b03034;
 }
 
-.fa-home, .fa-repeat {
-    color: black;
+.fa-repeat {
+    color: whitesmoke;
 }
 
-.fa-home:hover, .fa-repeat:hover {
+.fa-repeat:hover {
     transform: scale(1.2);
 }
 
 .game-result {
     color: rgb(74, 191, 34);
-    font-size: 6rem;
+    font-size: 2.2rem;
     font-weight: 400;
+}
+
+div a img {
+    height: 3rem;
+    filter: contrast(0.5);
+}
+
+div a img:hover {
+    transform: scale(1.1);
+}
+
+div a i:hover {
+    transform: scale(1.1);
+}
+
+div a i:focus {
+    outline: none;
+    box-shadow: none;
 }

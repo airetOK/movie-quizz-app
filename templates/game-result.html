@@ -13,14 +13,17 @@
         <link rel="stylesheet"
             href="../../static/font-awesome-4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet"
+            href="../../static/css/common.css">
+        <link rel="stylesheet"
             href="../../static/css/result.css">
         <script
             src="../../static/bootstrap/js/bootstrap.bundle.min.js"
             crossorigin="anonymous"></script>
     </head>
     <body>
-        <div class="container">
-            <div class="d-flex justify-content-center gap-3 game-result">
+        <div
+            class="container d-flex justify-content-center flex-column align-items-center">
+            <div class="d-flex game-result mb-4">
                 <div>
                     {{game_result.get_correct_answers()}}
                 </div>
@@ -29,15 +32,19 @@
                     {{game_result.get_total_amount()}}
                 </div>
             </div>
-            <div class="d-flex align-items-center justify-content-evenly">
-                <a href="/"><i class="fa fa-home fa-3x"
-                        aria-hidden="true"></i></a>
-                {% if not is_correct %}
-                <a href="/game/{{ game_id }}"><i class="fa fa-repeat fa-3x"
-                        aria-hidden="true"></i></a>
-                {% endif %}
+        </div>
+        <div
+            class="d-flex align-items-center justify-content-center gap-5 position-relative top-50">
+            <div class="mt-5">
+                <a href="/"><i class="fa fa-sign-out fa-3x" aria-hidden="true">
+                    </i></a>
+            </div>
+            <div class="mt-5">
+                <a href="/game/{{ game_id }}"><img
+                        src="../../static/images/retry.png" alt="retry" /></a>
             </div>
         </div>
+
         {% include "partials/quizz-results-modal.html" %}
     </body>
 </html>

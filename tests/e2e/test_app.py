@@ -49,7 +49,7 @@ def test_return_to_main_menu_from_result_page(browser: Browser):
     context = browser.new_context()
     page = context.new_page()
     page.goto(f"{BASE_URL}/quizz")
-    page.locator("div.movies form:first-of-type button").click()
+    page.locator("div.movies form button").first.click()
     expect(page).to_have_url(re.compile(f"{BASE_URL}/quizz/.*/verify"))
     page.locator("#return-to-main-menu").click()
     expect(page).to_have_url(re.compile(f"{BASE_URL}"))
@@ -82,7 +82,7 @@ def test_click_quizz_results_link_on_quizz_result_page(browser: Browser):
     context = browser.new_context()
     page = context.new_page()
     page.goto(f"{BASE_URL}/quizz")
-    page.locator("div.movies form:first-of-type button").click()
+    page.locator("div.movies form button").first.click()
     expect(page).to_have_url(re.compile(f"{BASE_URL}/quizz/.*/verify"))
 
     expect(page.locator("#showQuizzResultsModal")).not_to_be_visible

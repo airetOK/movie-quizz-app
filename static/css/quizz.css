@@ -12,17 +12,46 @@ hr {
     width: 90%;
 }
 
-.custom-btn {
-    border-color: #3275a8;
-    border-radius: 1%;
-    background-color: #3275a8;
+.quizz {
+    border-left: 1rem solid black;
+    border-right: 1rem solid black;
+    border-top: 2rem dashed black;
+    border-bottom: 2rem dashed black;
+    box-shadow: inset 0 0 0 1rem #000000;
+}
+
+.quizz .btn {
+    padding: 0;
+    background-color: #000000;
+    border-color: #000000;
+}
+
+.quizz img {
+    border-radius: 1rem;
+}
+
+.quizz img:hover {
+    filter: brightness(1.3);
+}
+
+.quizz:hover {
+    box-shadow: 0 0 0.2rem #ffffff;
+}
+
+.quizz .btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+#quizz-question {
+    color: whitesmoke;
 }
 
 .submit-answers-btn {
     width: 20rem;
     height: 6rem;
-    background-color: rgb(74, 191, 34);
-    border-color: rgb(74, 191, 34);
+    background-color: #30b052;
+    border-color: #30b052;
     border-radius: 1%;
 }
 

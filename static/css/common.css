@@ -1,5 +1,5 @@
 #return-to-main-menu i {
-    color: red;
+    color: rgb(39 34 34);
 }
 
 #return-to-main-menu i:hover {
@@ -7,9 +7,60 @@
 }
 
 #quizz-results-link a {
-    color: #3275a8;
+    color: darkgrey;
 }
 
 #quizz-results-link a:hover {
     transform: scale(1.2);
+}
+
+body,
+html {
+    height: 100%;
+    font-family: 'LimelightFont';
+    background: linear-gradient(27deg, rgba(23, 23, 23, 1) 93%, rgba(254, 255, 74, 1) 100%);
+    background-attachment: fixed;
+}
+
+.bg {
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+    background-image: url("../images/bg-image.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@font-face {
+    font-family: 'LimelightFont';
+    src: url('../font/Limelight-Regular.ttf');
+    font-weight: bold;
+}
+
+.bg .btn {
+    color: rgb(23, 18, 14);
+    text-decoration: none;
+    font-size: xx-large;
+}
+
+.bg .btn:hover {
+    color: whitesmoke !important;
+    border-color: none !important;
+    transform: scale(1.1);
+}
+
+.bg .btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }

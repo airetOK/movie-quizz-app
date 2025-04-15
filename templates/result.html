@@ -21,21 +21,27 @@
             crossorigin="anonymous"></script>
     </head>
     <body>
-        <div class="container">
-            <div class="d-flex justify-content-center">
+        <div
+            class="container d-flex flex-column justify-content-center align-items-center">
+            <div class="mt-5">
                 {% if is_correct %}
-                <i class="fa fa-check-circle fa-5x" aria-hidden="true"></i>
+                <i class="fa fa-check fa-5x" aria-hidden="true"></i>
                 {% else %}
                 <i class="fa fa-times fa-5x" aria-hidden="true"></i>
                 {% endif %}
             </div>
-            <div class="d-flex align-items-center justify-content-evenly">
-                <a href="/quizz"><i class="fa fa-step-forward fa-3x"
-                        aria-hidden="true"></i></a>
-                {% if not is_correct %}
-                <a href="/quizz/{{ quizz_id }}"><i class="fa fa-repeat fa-3x"
-                        aria-hidden="true"></i></a>
-                {% endif %}
+            <div class="d-flex justify-content-evenly w-100">
+                <div>
+                    <a href="/quizz"><img src="../../static/images/next.png"
+                            alt="next" /></a>
+                    {% if not is_correct %}
+                </div>
+                <div>
+                    <a href="/quizz/{{ quizz_id }}"><img
+                            src="../../static/images/retry.png"
+                            alt="retry" /></a>
+                    {% endif %}
+                </div>
             </div>
         </div>
         {% include "partials/return-to-main-menu.html" %}

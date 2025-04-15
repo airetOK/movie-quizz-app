@@ -90,7 +90,7 @@ def test_5_positive_quizzes(client):
         mock_generate_quizz.assert_called_once()
         assert 200 == response_quizz.status_code
         assert 200 == response_verify.status_code
-        assert b'<i class="fa fa-check-circle fa-5x" aria-hidden="true"></i>' in response_verify.data
+        assert b'<i class="fa fa-check fa-5x" aria-hidden="true"></i>' in response_verify.data
 
     assert session["correct_answers"] == 5
     assert session["total_quizzes"] == 5
@@ -107,7 +107,7 @@ def test_3_positive_quizzes_2_negative_quizzes(client):
         mock_generate_quizz.assert_called_once()
         assert 200 == response_quizz.status_code
         assert 200 == response_verify.status_code
-        assert b'<i class="fa fa-check-circle fa-5x" aria-hidden="true"></i>' in response_verify.data
+        assert b'<i class="fa fa-check fa-5x" aria-hidden="true"></i>' in response_verify.data
 
     for index in range(2):
         quizz = mock_quizzes[index]
@@ -147,7 +147,7 @@ def test_3_negative_quizzes_2_positive_quizzes(client):
         mock_generate_quizz.assert_called_once()
         assert 200 == response_quizz.status_code
         assert 200 == response_verify.status_code
-        assert b'<i class="fa fa-check-circle fa-5x" aria-hidden="true"></i>' in response_verify.data
+        assert b'<i class="fa fa-check fa-5x" aria-hidden="true"></i>' in response_verify.data
 
     assert session["correct_answers"] == 2
     assert session["total_quizzes"] == 5

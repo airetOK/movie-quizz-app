@@ -26,26 +26,29 @@
     <body>
         {% for quizz in quizzes %}
         <div class="d-flex flex-column align-items-center m-5">
-            <span>{{ quizz.get_question() }}</span>
-            <div class="movies d-flex justify-content-center image-container m-5">
+            <span id="quizz-question">{{ quizz.get_question() }}</span>
+            <div
+                class="movies d-flex justify-content-center image-container m-5">
                 {% for movie in quizz.get_shuffled_option_movies() %}
-                <button class="btn btn-outline-primary m-2"
-                    onclick="chooseMovie(this)"
-                    is-movie-correct="False"
-                    value="{{ movie.get_id() }}">
-                    <img src="{{ movie.get_image_url() }}" width="300"
-                        height="300" alt="movie">
-                </button>
+                <div class="quizz m-3">
+                    <button class="btn"
+                        onclick="chooseMovie(this)"
+                        is-movie-correct="False"
+                        value="{{ movie.get_id() }}">
+                        <img src="{{ movie.get_image_url() }}" width="400"
+                            height="300" alt="movie">
+                    </button>
+                </div>
                 ​{% endfor %}
             </div>
             <hr>
         </div>
         {% endfor %}
-        <div class="d-flex justify-content-center mb-5">
+        <div class="d-flex justify-content-center pb-5">
             <form action="/game/{{ game_id }}/verify" method="POST">
                 <button type="submit"
                     onclick="appendCorrectAnswersToInputForm()"
-                    class="btn btn-primary submit-answers-btn"
+                    class="btn btn-secondary submit-answers-btn"
                     name="correct-answers"
                     value
                     disabled>
@@ -55,19 +58,20 @@
         <script>
             // before submit validation (all answers must be clicked)
             document.addEventListener("click", function() {
-            const containers = document.querySelectorAll('.image-container');
-            const quizz_amount = containers.length;
-            let num = 0
-            for (let container of containers) {
-                for (let button of container.childNodes) {
-                    if (button.value) {
-                        if (button.getAttribute('is-movie-correct') === 'True') {
-                            ++num;
-                        }
+            const movies = document.querySelectorAll('.movies');
+            const moviesCount = movies.length;
+            let answers = 0
+
+            movies.forEach(movie => {
+                const buttons = movie.querySelectorAll('.quizz .btn');
+                buttons.forEach(button => {
+                    if (button.getAttribute('is-movie-correct') === 'True') {
+                        ++answers;
                     }
-                }
-            }
-            if (quizz_amount === num) {
+                });
+            });
+
+            if (moviesCount === answers) {
                 document.querySelector('.submit-answers-btn').disabled = false;
             }
             }, false);
